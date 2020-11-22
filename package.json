@@ -1,5 +1,6 @@
 {
 	"author": "Jorge Luis Galarraga",
+	"description": "A web app that teaches me the ability to make meaninful contributions to sotfware projects",
 	"name": "fcc-learn-npm-package-json",
 	"dependencies": {
 		"express": "^4.14.0"
