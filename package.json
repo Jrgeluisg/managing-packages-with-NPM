@@ -3,10 +3,15 @@
 	"description": "A web app that teaches me the ability to make meaninful contributions to sotfware projects",
 	"name": "fcc-learn-npm-package-json",
 	"license": "MIT",
-	"keywords": ["Useful Programmer", "freecodecamp", "Learn to be a Programmer"],
+	"keywords": [
+		"Useful Programmer",
+		"freecodecamp",
+		"Learn to be a Programmer"
+	],
 	"version": "1.2.0",
 	"dependencies": {
-		"express": "^4.14.0"
+		"express": "^4.14.0",
+		"moment": "2.14.0"
 	},
 	"main": "server.js",
 	"scripts": {
