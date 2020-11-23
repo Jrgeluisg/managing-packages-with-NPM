@@ -1,6 +1,7 @@
 var express = require('express');
 var app = express();
 var bGround = require('fcc-express-bground');
+require('dotenv').config();
 
 // --> 7) Mount the Logger middleware here
 
@@ -15,7 +16,7 @@ console.log("Hello World");
 
 
 /** 3) Serve an HTML file */
-app.get('/', function(req, res) {
+app.get('/', (req, res) => {
     res.sendFile(__dirname + '/views/index.html');
 });
 
@@ -24,15 +25,26 @@ app.use(express.static(__dirname + '/public'));
 app.use('/public', express.static(__dirname + '/public'));
 
 /** 5) Serve JSON on a specific route */
-app.get('/json', function(req, res) {
-    res.json(
-        {"message":"Hello json"}
-        );
-});
+// app.get('/json', (req, res) => {
+//     res.json(
+//         {"message":"Hello json"}
+//     );
+// });
 
 
 /** 6) Use the .env file to configure the app  */
-
+app.get('/json', (req, res) => {
+    console.log(process.env.MESSAGE_STYLE, "<= message style");
+    if(process.env.MESSAGE_STYLE === "uppercase") {
+        res.json(
+            {"message": "HELLO JSON"}
+            );
+    } else {
+        res.json(
+            {"message":"Hello json"}
+        );
+    }
+});
 
 /** 7) Root-level middleware - A logger */
 // place it before all the routes
