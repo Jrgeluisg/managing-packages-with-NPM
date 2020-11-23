@@ -22,6 +22,7 @@ if (!process.env.DISABLE_XORIGIN) {
     next();
   });
 }
+app.use('/public', express.static(__dirname + '/public'));
 
 // app.use('/public', express.static(process.cwd() + '/public'));
 
@@ -53,6 +54,7 @@ if (!process.env.DISABLE_XORIGIN) {
 //       .send(err.message || 'SERVER ERROR');
 //   }  
 // })
+
 app.get('/', function(req, res) {
   res.sendFile(__dirname + '/views/index.html');
 });
