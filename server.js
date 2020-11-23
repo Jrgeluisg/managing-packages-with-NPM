@@ -22,8 +22,6 @@ if (!process.env.DISABLE_XORIGIN) {
     next();
   });
 }
-app.use(express.static(__dirname + '/public'));
-app.use('/public', express.static(__dirname + '/public'));
 
 // app.use('/public', express.static(process.cwd() + '/public'));
 
@@ -55,13 +53,6 @@ app.use('/public', express.static(__dirname + '/public'));
 //       .send(err.message || 'SERVER ERROR');
 //   }  
 // })
-
-app.get('/', function(req, res) {
-  res.sendFile(__dirname + '/views/index.html');
-});
-// app.get('/', function(req, res) {
-//   res.send('Hello Express');
-// });
 
 var port = process.env.PORT || 5000;
 bGround.setupBackgroundApp(app, myApp, __dirname).listen(port, function(){
