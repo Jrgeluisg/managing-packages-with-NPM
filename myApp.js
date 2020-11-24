@@ -54,7 +54,18 @@ app.get('/json', (req, res) => {
 
 
 /** 8) Changing middleware. A Time server */
+function getCurrentTimeString(){
+    return new Date().toString();
+}
 
+app.get('/now', (req, res, next) => {
+    req.time = getCurrentTimeString();
+    next();
+}, (req, res) => {
+    res.json(
+        {time: req.time}
+    );
+});
 
 /** 9) Get input from client - Route parameters */
 
